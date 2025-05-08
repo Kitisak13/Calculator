@@ -20,11 +20,12 @@ model.fit(X_train, y_train)
 # Make predictions
 y_pred = model.predict(X_test)
 
-# Evaluate the model
+# Evaluate the model 
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Accuracy: {accuracy:.2f}")
 
-# Example prediction
-new_data = np.array([[3, 5]])
-prediction = model.predict(new_data)
-print(f"Prediction for {new_data}: {prediction}")
+# Example predictions for multiple new data points
+new_data_points = np.array([[3, 5], [2, 4], [6, 8], [1, 3], [4, 6]])
+predictions = model.predict(new_data_points)
+for data, pred in zip(new_data_points, predictions):
+    print(f"Prediction for {data}: {pred}")
